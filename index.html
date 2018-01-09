@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>VATPAC ATIS</title>
+        <!-- Main CSS file -->
+        <link rel="stylesheet" href="css/taaats.css">
+        <!-- jQuery -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </head>
+    <body id="bod" style="margin:0px;padding:0px;border:2px solid #990000; height: calc(100vh - 4px);">
+
+        <div class="titlebar">
+            <div class="drag bluelad">MOVE</div>
+            <h3 class="redlad head" style="margin: 0px">ATIS EDITOR</h3>
+            <div class="close bluelad" id="close-btn">CLOSE</div>
+        </div>
+        <div id="main" class="sunken scrollbar" style="height:calc(100vh - 60px);">
+            <table style="width:90%">
+                <tbody>
+                    <tr>
+                        <td class="bluelad tableName">METAR:</td>
+                        <td class="bluelad">
+                            <div class="bluelad sunken" style="width:100%;" id="metarText">Waiting for EuroScope ATIS Request...</div>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td class="bluelad tableName">INFO:</td>
+                        <td class="bluelad">
+                            <input id="atisID" type="text" style="width:30px;" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bluelad tableName">APPROACH:</td>
+                        <td class="bluelad">
+                            <select style="width:100%;" id="apchSelect" onChange="enableDisable(); generateATIS();">
+                                <option value="none">N/A</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bluelad tableName">RWY:</td>
+                        <td class="bluelad">
+                            <select style="width:100%;" id="rwySelect" onChange="getOper(); generateATIS();">
+                                <option value="none">N/A</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bluelad tableName">SURFACE COND:</td>
+                        <td class="bluelad">
+                            <select style="width:100%;" id="sfcCond" onChange="generateATIS();">
+                                <option value="" selected>DRY</option>
+                                <option value="[DAMP] ,">DAMP</option>
+                                <option value="[WET] ,">WET</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bluelad tableName">OPR INFO:</td>
+                        <td class="bluelad">
+                            <input type="text" style="width:100%;" id="operInfo" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bluelad tableName">WIND:</td>
+                        <td class="bluelad">
+                            <input type="text" style="width:100%;" id="wind" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bluelad tableName">VIS:</td>
+                        <td class="bluelad">
+                            <input type="text" style="width:100%;" value="TEST" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bluelad tableName">WX:</td>
+                        <td class="bluelad">
+                            <input type="text" style="width:100%;" value="TEST" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bluelad tableName">TEMPERATURE:</td>
+                        <td class="bluelad">
+                            <input type="text" style="width:50px;" value="TEST" disabled>
+                            <span class="tableName">QNH:</span>
+                            <input type="text" style="width:50px;" value="TEST" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bluelad"></td>
+                        <td class="bluelad">
+                            <button id="startServer" style="width:15%; float:left;" onClick="startServer()">START</button>
+                            <div id="status" class="sunken" style="width:80%; float:right;">Local ATIS server offline...</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="foot" class="footer"></div>
+    </body>
+    <!-- Titlebar -->
+    <script src="scripts/titlebar.js"></script>
+    <!-- Notifications -->
+    <script src="scripts/notify.js"></script>
+    <!-- HTTP Server -->
+    <script src="scripts/server.js"></script>
+    <!-- Metar Decoder -->
+    <script src="scripts/metarDecode.js"></script>
+    <!-- ATIS Generator -->
+    <script src="scripts/atis.js"></script>
+    <!-- UI -->
+    <script src="scripts/ui.js"></script>
+</html>

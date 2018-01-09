@@ -1,0 +1,21 @@
+Airports.json
+Contains all airport data including runway modes, approach types and contact strings.
+
+"name" = The string of text for the aerodrome name.
+"firstContact" = The string of to be used at the end of the ATIS.
+"intas" = Boolean value for weather or not it's an INTAS ATIS (For accented characters)
+"runwayModes" = Array of runway modes.
+	"name" = Runway mode lable.
+	"text" = String of text for the text ATIS.
+	"dir1" = The single text string of (one of) the runway in use ([0]), and the direction of the runway ([1]).
+	"dir2" = The single text string of the second runway in use ([0]), and the direction of the runway ([1]). (NOT ALWAYS APLICABLE).
+	"oper" = Operational information string associated with the runway mode.
+
+	If blank, the user must manually enter a runway mode.
+
+"approachTypes" = Array of runway modes.
+	"name" = Approach type lable.
+	"text" = String of text for the text ATIS.
+	"exclude" = Array of runway mode indexes where the approach does not apply.
+
+	If blank, [EXP INSTR APCH], and visual approach selections will be available by default.
