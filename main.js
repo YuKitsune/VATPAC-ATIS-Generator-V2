@@ -14,10 +14,11 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-        minWidth:480,
-        minHeight:340,
-        width: 480,
-        height: 340,
+        minWidth: 500,
+        minHeight: 390,
+        width: 500,
+        height: 390,
+        icon: path.join(__dirname, 'build/icon.ico'),
         frame: false
   });
 

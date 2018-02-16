@@ -1,10 +1,11 @@
 {
   "name": "VATPAC_ATIS_GENERATOR",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "EuroScope Text ATIS Generator for VATPAC",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build-windows": "electron-builder -w --ia32"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -22,6 +23,7 @@
     "electron-prebuilt": "^1.4.13"
   },
   "dependencies": {
+    "electron-builder": "^20.0.4",
     "jquery": "^3.2.1",
     "metar": "^1.0.0",
     "node-notifier": "^5.1.2",

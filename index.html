@@ -83,8 +83,8 @@
                         <td class="bluelad">
                             <select style="width:100%;" id="sfcCond" onChange="ATIS.generate();">
                                 <option value="" selected>DRY</option>
-                                <option value="[DAMP] ,">DAMP</option>
-                                <option value="[WET] ,">WET</option>
+                                <option value="[DAMP] , ">DAMP</option>
+                                <option value="[WET] , ">WET</option>
                             </select>
                         </td>
                     </tr>
@@ -126,13 +126,6 @@
                             <input type="text" style="width:50px;" id="qnh" disabled>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="bluelad"></td>
-                        <td class="bluelad">
-                            <button id="startServer" style="width:15%; float:left;" onClick="startServer()">START</button>
-                            <div id="status" class="sunken" style="width:80%; float:right;">Local ATIS server offline...</div>
-                        </td>
-                    </tr>
 
                     <!-- Departure frequency entry START -->
 
@@ -164,6 +157,13 @@
 
                     <!--  GND APP frequency entry END  -->
 
+                    <tr>
+                        <td class="bluelad"></td>
+                        <td class="bluelad">
+                            <button id="startServer" style="width:15%; float:left;" onClick="startServer()">START</button>
+                            <div id="status" class="sunken" style="width:80%; float:right;">Local ATIS server offline...</div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -171,8 +171,6 @@
     </body>
     <!-- Titlebar -->
     <script src="scripts/titlebar.js"></script>
-    <!-- Notifications 
-    <script src="scripts/notify.js"></script>-->
     <!-- Utilities -->
     <script src="scripts/utils.js"></script>
     <!-- HTTP Server -->
