@@ -172,7 +172,7 @@
 	},
 	"YMML": {
 		"name": "[MELBOURNE]",
-		"firstContact": "[ON FIRST CONTACT WITH] [MELBOURNE] [NOTIFY RECEIPT OF]",
+		"firstContact": "[ON FIRST CONTACT WITH] [MELBOURNE] [NOTIFY RECEIPT]",
 		"intas": true,
 		"runwayModes": {
 			"0": [{
@@ -251,7 +251,7 @@
 	},
 	"YPPH": {
 		"name": "[PERTH]",
-		"firstContact": "[ON FIRST CONTACT WITH] [PERTH] [NOTIFY RECEIPT OF]",
+		"firstContact": "[ON FIRST CONTACT WITH] [PERTH] [NOTIFY RECEIPT]",
 		"intas": true,
 		"runwayModes": {
 			"0": [{

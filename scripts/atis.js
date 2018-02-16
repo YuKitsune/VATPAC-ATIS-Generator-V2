@@ -124,7 +124,7 @@ function generateATIS(req){
     /*
      Visibility
     */
-    textAtisString = textAtisString.concat(formatVis(met.visibility) + " , ");
+    textAtisString = textAtisString.concat(formatVis(met.visibility, met.cavok) + " , ");
 
     /*
      Weather
@@ -144,9 +144,13 @@ function generateATIS(req){
         textAtisString = textAtisString.concat("[TMP] " +  met.temperature.toString().substr(0,1) + "[" + met.temperature.toString().substr(1,1) + ",] , ");
         textAtisString = textAtisString.concat("[QNH] " +  met.altimeterInHpa.toString().substr(0,3) + "[" + met.altimeterInHpa.toString().substr(3,1) + ",] , ");
     } else {
-        textAtisString = textAtisString.concat("[TMP] " +  met.temperature.toString());
-        textAtisString = textAtisString.concat("[QNH] " +  met.altimeterInHpa.toString());
+        textAtisString = textAtisString.concat("[TMP] " +  met.temperature.toString() + " , ");
+        textAtisString = textAtisString.concat("[QNH] " +  met.altimeterInHpa.toString() + " , ");
     }
+
+    // HTML
+    document.getElementById("tmp").value = met.temperature;
+    document.getElementById("qnh").value = met.altimeterInHpa;
 
     // finishing off the ATIS
     textAtisString = textAtisString.concat(apObj.firstContact + " " + atisID + " ,");
@@ -194,15 +198,26 @@ function formatWind(wind){
 }
 
 // Function to format visibility info
-function formatVis(vis){
+function formatVis(vis, cavok){
 
-    if(vis === 9999){
-        return "[VIS] [GT THAN 10 KM]"
-    } else if (vis > 5000 ) {
-        return "[VIS] " + vis.toString().substr(0,1) + " [KM]" + visWxMod();
+    let returnData;
+
+    if(!cavok){
+        if(vis === 9999){
+            returnData = "[VIS] [GT THAN 10 KM]"
+        } else if (vis > 5000 ) {
+            returnData = "[VIS] " + vis.toString().substr(0,1) + " [KM]" + visWxMod();
+        } else {
+            returnData = "[VIS] {" + vis.toString() + "} [METERS]" + visWxMod();
+        }
     } else {
-        return "[VIS] {" + vis.toString() + "} [KM]" + visWxMod();
+        returnData = "[CAVOK]";
     }
+
+    // HTML
+    document.getElementById("vis").value = returnData.replace(/\[|\]|{|}|,/g, "");
+
+    return returnData;
 }
 
 // Function to add the weather modifier to the visibility section
@@ -239,6 +254,8 @@ function visWxMod(met){
 // Function to format weather data
 function formatWx(wx){
 
+    let returnData;
+
     if(wx !== null){
 
         // Loop through weather
@@ -248,25 +265,34 @@ function formatWx(wx){
             switch(met.weather[i].abbreviation){
                     
                 case "VCSH":
-                    return " [VCSH] , "
+                    returnData = " [VCSH] , "
                     break;
 
                 case "SH":
                 case "RA":
-                    return " [SHOWERS IN AREA] , "
+                    returnData = " [SHOWERS IN AREA] , "
                     break;
 
                 case "TS":
                 case "TSRA":
-                    return " [TS IN AREA] , "
+                    returnData = " [TS IN AREA] , "
                     break;
                     
                 default:
-                    return ""
+                    returnData = ""
                     break;
             }
+
+            // HTML
+            document.getElementById("wx").value = returnData.replace(/\[|\]|{|}|,/g, "");
+
+            return returnData;
         }
     } else {
+
+        // HTML
+        document.getElementById("wx").value = "";
+
         return "";
     }
 }
@@ -274,27 +300,34 @@ function formatWx(wx){
 // Function to format cloud info
 function formatCld(clouds, cavok){
 
-    if(cavok){
-        return "[CAVOK] , "
-    } else {
+    if(!cavok){
 
         var returnData = "[CLD] ";
 
         // Loop through the cloud data
         for(var i = 0; i < clouds.length; i++){
 
-            // Creat the elements
-            let cld = "[" + clouds[i].abbreviation + "] "; // Cloud type
-            let cb = ""; // CB
-            if (clouds[i].cumulonimbus){
-                cb = " [CB] ";
-            }
-            let alt = "{" + clouds[i].altitude + "} [FT] , "; // Altitude
+            // Bellow 10,000ft
+            if(clouds[i].altitude < 10000){
 
-            // Add to return data
-            returnData = returnData.concat(cld + cb + alt);
+                // Creat the elements
+                let cld = "[" + clouds[i].abbreviation + "] "; // Cloud type
+                let cb = ""; // CB
+                if (clouds[i].cumulonimbus){
+                    cb = " [CB] ";
+                }
+                let alt = "{" + clouds[i].altitude + "} [FT] , "; // Altitude
+
+                // Add to return data
+                returnData = returnData.concat(cld + cb + alt);
+            }
         }
 
+        // HTML
+        document.getElementById("cld").value = returnData.replace(/\[|\]|{|}|,/g, "");
+
         return returnData;
+    }else{
+        return "";
     }
 }

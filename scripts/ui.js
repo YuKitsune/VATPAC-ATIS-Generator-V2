@@ -86,45 +86,6 @@ function appTypeExists(types,find){
     return false;
 }
 
-// Enable and disable elements on the UI
-function enableDisable(){
-
-    // Check if the approach type and the runway are allowed
-
-    // Loops through the approach types
-    Object.keys(apObj.approachTypes).forEach(function(key1) {
-        // key: the name of the object key
-        // index: the ordinal position of the key within the object
-
-        // When the types equal
-        if(document.getElementById("apchSelect").value === apObj.approachTypes[key1][0].text){
-
-            // If there are any exclusions
-            if(apObj.approachTypes[key1][0].exclude !== undefined){
-
-                // Loop through the exclusions
-                for(var j = 0; j < apObj.approachTypes[key1][0].exclude.length; j++){
-
-                    // Loops through the runway modes
-                    Object.keys(apObj.runwayModes).forEach(function(key2,i2) {
-                        // key: the name of the object key
-                        // index: the ordinal position of the key within the object
-
-                        // If the modes match
-                        if(apObj.approachTypes[key1][0].exclude[j] == i2){
-
-                            var excludeIndex = apObj.approachTypes[key1][0].exclude[j];
-
-                            // Get the runway element
-                            document.getElementById(apObj.runwayModes[excludeIndex][0].text).setAttribute("disabled", "true");
-                        }
-                    });
-                }
-            }
-        }
-    });
-}
-
 // Get operational info
 function getOper(){
 
