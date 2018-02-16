@@ -32,9 +32,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="bluelad tableName">APPROACH:</td>
+                        <td class="bluelad tableName">APCH:</td>
                         <td class="bluelad">
-                            <select style="width:100%;" id="apchSelect" onChange="enableDisable(); generateATIS();">
+                            <select style="width:100%;" id="apchSelect" onChange="ATIS.generate();">
                                 <option value="none">N/A</option>
                             </select>
                         </td>
@@ -42,15 +42,46 @@
                     <tr>
                         <td class="bluelad tableName">RWY:</td>
                         <td class="bluelad">
-                            <select style="width:100%;" id="rwySelect" onChange="getOper(); generateATIS();">
+                            <select style="width:100%;" id="rwySelect" onChange="ATIS.generate(); UI.checkManualRunway()">
                                 <option value="none">N/A</option>
                             </select>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="bluelad tableName">SURFACE COND:</td>
+
+                    <!-- Manual runway entry START -->
+
+                    <tr id="manRwy1Row" style="display: none;">
+                        <td class="bluelad tableName">ARR:</td>
                         <td class="bluelad">
-                            <select style="width:100%;" id="sfcCond" onChange="generateATIS();">
+                            <input type="text" style="width:48%;" id="manRwy1" maxlength="2" onkeyup="ATIS.generate()" placeholder="Eg: 16">
+                            <select style="width:49%;" id="manRwy1Dir" onChange="ATIS.generate();">
+                                <option value="" selected>N/A</option>
+                                <option value="L">Left</option>
+                                <option value="R">Right</option>
+                                <option value=" [L&R]">Left and Right</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr id="manRwy2Row" style="display: none;">
+                        <td class="bluelad tableName">DEP:</td>
+                        <td class="bluelad">
+                            <input type="text" style="width:48%;" id="manRwy2" maxlength="2" onkeyup="ATIS.generate()" placeholder="(Blank if same as Arr)">
+                            <select style="width:49%;" id="manRwy2Dir" onChange="ATIS.generate();">
+                                <option value="" selected>N/A</option>
+                                <option value="L">Left</option>
+                                <option value="R">Right</option>
+                                <option value=" [L&R]">Left and Right</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!--  Manual runway entry END  -->
+
+                    <tr>
+                        <td class="bluelad tableName">SFC COND:</td>
+                        <td class="bluelad">
+                            <select style="width:100%;" id="sfcCond" onChange="ATIS.generate();">
                                 <option value="" selected>DRY</option>
                                 <option value="[DAMP] ,">DAMP</option>
                                 <option value="[WET] ,">WET</option>
@@ -64,7 +95,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="bluelad tableName">WIND:</td>
+                        <td class="bluelad tableName">WND:</td>
                         <td class="bluelad">
                             <input type="text" style="width:100%;" id="wind" disabled>
                         </td>
@@ -88,7 +119,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="bluelad tableName">TEMPERATURE:</td>
+                        <td class="bluelad tableName">TMP:</td>
                         <td class="bluelad">
                             <input type="text" style="width:50px;" id="tmp" disabled>
                             <span class="tableName">QNH:</span>
@@ -102,6 +133,37 @@
                             <div id="status" class="sunken" style="width:80%; float:right;">Local ATIS server offline...</div>
                         </td>
                     </tr>
+
+                    <!-- Departure frequency entry START -->
+
+                    <tr id="depFreqRow" style="display: none;">
+                        <td class="bluelad tableName">DEP FRQ:</td>
+                        <td class="bluelad">
+                            <input type="text" style="width:100%;" id="depFreq" maxlength="7" onkeyup="ATIS.generate()" placeholder="Eg: 135.6 (Required)">
+
+                        </td>
+                    </tr>
+
+                    <!--  Departure frequency entry END  -->
+
+                    <!-- GND APP frequency START -->
+
+                    <tr id="gndFreqRow" style="display: none;">
+                        <td class="bluelad tableName">GND:</td>
+                        <td class="bluelad">
+                            <input type="text" style="width:100%;" id="gndFreq" maxlength="7" onkeyup="ATIS.generate()" placeholder="Eg: 121.7 (Required)">
+                        </td>
+                    </tr>
+
+                    <tr id="appFreqRow" style="display: none;">
+                        <td class="bluelad tableName">APP:</td>
+                        <td class="bluelad">
+                            <input type="text" style="width:100%;" id="appFreq" maxlength="7" onkeyup="ATIS.generate()" placeholder="Eg: 124.4 (Required)">
+                        </td>
+                    </tr>
+
+                    <!--  GND APP frequency entry END  -->
+
                 </tbody>
             </table>
         </div>
@@ -109,8 +171,10 @@
     </body>
     <!-- Titlebar -->
     <script src="scripts/titlebar.js"></script>
-    <!-- Notifications -->
-    <script src="scripts/notify.js"></script>
+    <!-- Notifications 
+    <script src="scripts/notify.js"></script>-->
+    <!-- Utilities -->
+    <script src="scripts/utils.js"></script>
     <!-- HTTP Server -->
     <script src="scripts/server.js"></script>
     <!-- Metar Decoder -->

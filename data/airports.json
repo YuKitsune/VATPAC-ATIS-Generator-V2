@@ -2,291 +2,399 @@
 	"YSSY": {
 		"name": "[SYDNEY]",
 		"firstContact": "[ON FIRST CONTACT WITH] [SYDNEY] [NOTIFY RECEIPT]",
-		"intas": false,
-		"runwayModes": {
-			"0": [{
+		"runwayModes": [
+			{
 				"name": "34L&R Arrivals and Departures",
 				"text": "[RWY] 34 [L&R] [FOR ARRS AND DEPS]",
 				"dir1": ["34 [L&R]", 335],
-				"oper": "[PARL RWY OPS IN PROG] , [INDEP DEPS IN PROG]"
-			}],
-			"1": [{
+				"oper": "[PARL RWY OPS IN PROG] , [INDEP DEPS IN PROG] , "
+			},
+			{
 				"name": "16L&R Arrivals and Departures",
 				"text": "[RWY] 16 [L&R] [FOR ARRS AND DEPS]",
 				"dir1": ["16 [L&R]", 155],
-				"oper": "[PARL RWY OPS IN PROG] , [INDEP DEPS IN PROG]"
-			}],
-			"2": [{
+				"oper": "[PARL RWY OPS IN PROG] , [INDEP DEPS IN PROG] , "
+			},
+			{
 				"name": "34L&R Departures, 25 Arrivals",
-				"text": "[RWY] 34 [L&R] [FOR ARRS] , [RWY] 25 [FOR DEPS]",
+				"text": "[RWY] 34 [L&R] [FOR ARRS] , [RWY] 25 [FOR DEPS] , ",
 				"dir1": ["34 [L&R]", 335],
 				"dir2": ["25", 242]
-			}],
-			"3": [{
+			},
+			{
 				"name": "16L&R Departures, 25 Arrivals",
-				"text": "[RWY] 16 [L&R] [FOR ARRS] , [RWY] 25 [FOR DEPS]",
+				"text": "[RWY] 16 [L&R] [FOR ARRS] , [RWY] 25 [FOR DEPS] , ",
 				"dir1": ["16 [L&R]", 155],
 				"dir2": ["25", 242]
-			}],
-			"4": [{
+			},
+			{
 				"name": "07 Arrivals and Depatures",
 				"text": "[RWY] 0[7,]",
 				"dir1": ["07", 62]
-			}],
-			"5": [{
+			},
+			{
 				"name": "07 Arrivals, 16L&R Departures",
 				"text": "[RWY] 07 [FOR ARRS] 16 [L&R] [FOR DEPS]",
 				"dir1": ["16 [L&R]", 155],
 				"dir2": ["07", 62]
-			}],
-			"6": [{
+			},
+			{
 				"name": "Curfew OPS",
 				"text": "[RWY] 34L [FOR ARRS], [RWY] 16R [FOR DEPS]",
-				"oper": "[CURFEW RWY NOMINATION CURFEW IN OPER UNTIL TIME 1900]",
+				"oper": "[CURFEW RWY NOMINATION CURFEW IN OPER UNTIL TIME 1900] , ",
 				"dir1": ["34L", 155],
 				"dir2": ["16R", 335]
-			}],
-			"7": [{
+			},
+			{
 				"name": "SODPROPS",
 				"text": "[RWY] 34L [FOR ARRS] , [RWY] 16L [FOR DEPS] , [RWY] 34L [AVBL FOR DEP IF REQD OR AS DIRECTED BY ATC]",
-				"oper": "[SIMULT OPPOSITE DIR PARL RWY OPS IN PROGRESS]",
+				"oper": "[SIMULT OPPOSITE DIR PARL RWY OPS IN PROGRESS] , ",
 				"dir1": ["34R", 155],
 				"dir2": ["16L", 335]
-			}]
-		},
-		"approachTypes":{
-			"0": [{
+			}
+		],
+		"approachTypes":[
+			{
 				"name": "ILS Approach",
-				"text": "[EXP ILS APCH]"
-			}],
-			"1": [{
+				"text": "[EXP ILS APCH] , "
+			},
+			{
 				"name": "ILS or GLS Approach",
-				"text": "[EXP ILS OR GLS APCH]"
-			}],
-			"2": [{
+				"text": "[EXP ILS OR GLS APCH] , "
+			},
+			{
 				"name": "Independant Visual Approach",
-				"text": "[EXP INDEP VIS APCH] , [CL]",
-				"exclude": [2,3,4,5,6,7]
-			}],
-			"3": [{
+				"text": "[EXP INDEP VIS APCH] , [DO NOT PASS THRU ASSIGNED RWY CL] , "
+			},
+			{
 				"name": "ILS or GLS then Independant Visual Approach",
-				"text": "[EXP ILS OR GLS APCH] [THEN INDEP VIS APCH WHEN VIS] , [CL]",
-				"exclude": [2,3,4,5,6,7]
-			}],
-			"4": [{
+				"text": "[EXP ILS OR GLS APCH] [THEN INDEP VIS APCH WHEN VIS] , [DO NOT PASS THRU ASSIGNED RWY CL] , "
+			},
+			{
 				"name": "ILS PRM Approach",
-				"text": "[EXP ILS PRM APCH] , [CL]"
-			}],
-			"5": [{
+				"text": "[EXP ILS PRM APCH] , [DO NOT PASS THRU ASSIGNED RWY CL] , "
+			},
+			{
 				"name": "Visual Approach",
 				"text": "",
 				"exclude": [0,1]
-			}]
-		}
+			}
+		]
 	},
 	"YBBN": {
 		"name": "[BRISBANE]",
 		"firstContact": "[ON FIRST CONTACT WITH] [BRISBANE] [NOTIFY RECEIPT]",
-		"intas": false,
-		"runwayModes": {
-			"0": [{
+		"runwayModes": [
+			{
 				"name": "01 Arrivals and Departures",
-				"text": "[RWY] 0[1,]",
+				"text": "[RWY] 01",
 				"dir1": ["01", 16]
-			}],
-			"1": [{
+			},
+			{
 				"name": "19 Arrivals and Departures",
-				"text": "[RWY] 1[9,]",
+				"text": "[RWY] 19",
 				"dir1": ["19", 196]
-			}],
-			"2": [{
+			},
+			{
 				"name": "1&14 Arrivals, 01 Departures",
 				"text": "[RWY] 01 [AND] [RWY] 14 [FOR ARRS] , [RWY] 01 [FOR DEPS]",
-				"oper": "[CONVERGING RWY OPS]",
+				"oper": "[CONVERGING RWY OPS] , ",
 				"dir1": ["01", 16],
 				"dir2": ["14", 135]
-			}],
-			"3": [{
+			},
+			{
 				"name": "01&32 Arrivals, 01 Departures",
 				"text": "[RWY] 01 [AND] [RWY] 32 [FOR ARRS] , [RWY] 01 [FOR DEPS]",
-				"oper": "[CONVERGING RWY OPS]",
+				"oper": "[CONVERGING RWY OPS] , ",
 				"dir1": ["01", 16],
 				"dir2": ["32", 315]
-			}],
-			"4": [{
+			},
+			{
 				"name": "01&32 Arrivals, 32 Departures via SU, 01 Departures",
-				"text": "[RWY] 01 [AND] [RWY] 32 [FOR ARRS] , [RWY] 32 [FOR DEP VIA SU] [RWY] 01 [FOR DEPS]",
-				"oper": "[CONVERGING RWY OPS]",
+				"text": "[RWY] 01 [AND] [RWY] 32 [FOR ARRS] , [RWY] 32 [FOR DEP VIA SU], [RWY] 01 [FOR DEPS]",
+				"oper": "[CONVERGING RWY OPS] , ",
 				"dir1": ["01", 16],
 				"dir2": ["32", 315]
-			}],
-			"5": [{
+			},
+			{
 				"name": "Reciprocal Runway Operations",
 				"text": "[RWY] 19 [FOR ARRS] , [RWY] 01 [FOR DEPS]",
-				"oper": "[RECIPROCAL RWY OPERATIONS, START APPROVAL REQUIRED]",
+				"oper": "[RECIPROCAL RWY OPERATIONS, START APPROVAL REQUIRED] , ",
 				"dir1": ["01", 16],
 				"dir2": ["19", 196]
-			}]
-		},
-		"approachTypes":{
-			"0": [{
+			}
+		],
+		"approachTypes":[
+			{
 				"name": "Instrument Approach",
-				"text": "[EXP INSTR APCH]"
-			}],
-			"1": [{
+				"text": "[EXP INSTR APCH] , "
+			},
+			{
 				"name": "Instrument Approach for Traffic (19)",
-				"text": "[EXP INSTR APCH] [RWY] 19 [FOR TFC MGMT]",
-				"exclude": [0,2,3,4]
-			}],
-			"2": [{
+				"text": "[EXP INSTR APCH] [RWY] 19 [FOR TFC MGMT] , "
+			},
+			{
 				"name": "Instrument Approach for Traffic (01)",
-				"text": "[EXP INSTR APCH] [RWY] 01 [FOR TFC MGMT]",
-				"exclude": [1,5]
-			}],
-			"3": [{
+				"text": "[EXP INSTR APCH] [RWY] 01 [FOR TFC MGMT] , "
+			},
+			{
 				"name": "Visual Approach",
 				"text": ""
-			}]
-		}
+			}
+		]
 	},
 	"YBCG": {
 		"name": "[GOLD COAST]",
 		"firstContact": "[ON FIRST CONTACT WITH CG_TWR OR CG_APP NOTIFY RECEIPT OF]",
-		"intas": true,
 		"runwayModes": {},
-		"approachTypes":{
-			"0": [{
+		"approachTypes":[
+			{
 				"name": "Instrument Approach",
 				"text": "[EXP INSTR APCH]"
-			}],
-			"1": [{
+			},
+			{
 				"name": "Instrument Approach (Jets)",
-				"text": "[JETS EXP INSTR APCH]",
-				"exclude": [0,2,3,4]
-			}],
-			"2": [{
+				"text": "[JETS EXP INSTR APCH] , "
+			},
+			{
 				"name": "Visual Approach",
 				"text": ""
-			}]
-		}
+			}
+		]
 	},
 	"YMML": {
 		"name": "[MELBOURNE]",
 		"firstContact": "[ON FIRST CONTACT WITH] [MELBOURNE] [NOTIFY RECEIPT]",
-		"intas": true,
-		"runwayModes": {
-			"0": [{
+		"idLimit":{
+			"start": "N",
+			"end": "Y"
+		},
+		"runwayModes": [
+			{
 				"name": "27 Arrivals and Departures",
 				"text": "[RWY] 27",
 				"dir1": ["27", 263]
-			}],
-			"1": [{
+			},
+			{
 				"name": "16 Arrivals and Departures",
 				"text": "[RWY] 16",
 				"dir1": ["16", 160]
-			}],
-			"2": [{
+			},
+			{
 				"name": "34 Arrivals and Departures",
 				"text": "[RWY] 34",
 				"dir1": ["34", 340]
-			}],
-			"3": [{
+			},
+			{
 				"name": "09 Arrivals and Departures",
 				"text": "[RWY] 09",
 				"dir1": ["09", 83]
-			}],
-			"4": [{
+			},
+			{
 				"name": "27 Arrivals and Departures, 34 Departures (North East)",
 				"text": "[RWY] 27 [FOR ARRS] , [RWY] 34 [FOR DEPS] [NE] , [RWY] 27 [FOR ALL OTHER DEPS]",
 				"dir1": ["27", 263],
 				"dir2": ["34", 340]
-			}],
-			"5": [{
+			},
+			{
 				"name": "16 Arrivals and 27 Departures",
 				"text": "[RWY] 16 [FOR ARRS] , [RWY] 27 [FOR DEPS]",
 				"dir1": ["16", 160],
 				"dir2": ["27", 263]
-			}],
-			"6": [{
+			},
+			{
 				"name": "LAHSO",
 				"text": "[RWY] 27 [AND] 34 [FOR ARRS] , [RWY] 27 DEPS]",
 				"dir2": ["27", 263],
 				"dir1": ["34", 340],
-				"oper": "[LAHSO IN PROG]"
-			}]
-		},
-		"approachTypes":{}
+				"oper": "[LAHSO IN PROG] , "
+			}
+		],
+		"approachTypes":[
+			{
+				"name": "Instrument Approach",
+				"text": "[EXP INSTR APCH] , "
+			},
+			{
+				"name": "Instrument Approach (34)",
+				"text": "[ACFT ON A STAR EXP RNAV APCH] , "
+			},
+			{
+				"name": "Visual Approach",
+				"text": ""
+			}
+		]
 	},
 	"YMEN": {
 		"name": "[ESSENDON]",
-		"firstContact": "[ON FIRST CONTACT WITH EN_GND, TWR OR ML_APP NOTIFY RECEIPT OF]",
-		"intas": false,
-		"runwayModes": {},
-		"approachTypes":{}
+		"firstContact": "[ON FIRST CONTACT WITH EN GND, TWR, OR ML APP, NOTIFY RECEIPT]",
+		"idLimit":{
+			"start": "A",
+			"end": "M"
+		},
+		"runwayModes": [],
+		"approachTypes":[]
 	},
 	"YPAD": {
 		"name": "[ADELAIDE]",
-		"firstContact": "[ON FIRST CONTACT WITH] [ADELAIDE] [NOTIFY RECEIPT OF]",
-		"intas": false,
-		"runwayModes": {
-			"0": [{
+		"firstContact": "[ON FIRST CONTACT WITH] [ADELAIDE] [NOTIFY RECEIPT]",
+		"runwayModes": [
+			{
 				"name": "23 Arrivals and Departures",
-				"text": "[RWY] 2[3,]",
+				"text": "[RWY] 23",
 				"dir1": ["23", 222]
-			}],
-			"1": [{
+			},
+			{
 				"name": "05 Arrivals and Departures",
-				"text": "[RWY] 0[5,]",
+				"text": "[RWY] 05",
 				"dir1": ["05", 42]
-			}],
-			"2": [{
+			},
+			{
 				"name": "Curfew OPS",
 				"text": "[RWY] 23 [FOR ARRS] , [RWY] 05 [FOR DEPS]",
-				"oper": "[CURFEW RWY NOMINATION CURFEW IN OPER UNTIL TIME 1900]",
+				"oper": "[CURFEW RWY NOMINATION CURFEW IN OPER UNTIL TIME 1900] , ",
 				"dir1": ["23", 222],
 				"dir2": ["05", 42]
-			}]
-		},
-		"approachTypes":{}
+			}
+		],
+		"approachTypes":[
+			{
+				"name": "Instrument Approach",
+				"text": "[EXP INSTR APCH] , "
+			},
+			{
+				"name": "Instrument Approach (East / Jets West)",
+				"text": "[ACFT FM EST AND JET ACFT FM WST EXP INST APCH] , "
+			},
+			{
+				"name": "Visual Approach",
+				"text": ""
+			}
+		]
 	},
 	"YPPH": {
 		"name": "[PERTH]",
 		"firstContact": "[ON FIRST CONTACT WITH] [PERTH] [NOTIFY RECEIPT]",
-		"intas": true,
-		"runwayModes": {
-			"0": [{
+		"runwayModes": [
+			{
 				"name": "21 Arrivals and Departures",
 				"text": "[RWY] 21",
 				"dir1": ["21", 196]
-			}],
-			"1": [{
+			},
+			{
 				"name": "24 Arrivals and Departures",
 				"text": "[RWY] 24",
 				"dir1": ["240", 240]
-			}],
-			"2": [{
+			},
+			{
 				"name": "21 and 24 Arrivals, 21 Departures",
 				"text": "[RWY] 23 [FOR ARRS] , [RWY] 05 [FOR DEPS]",
 				"dir1": ["21", 196],
 				"dir2": ["240", 240]
-			}],
-			"3": [{
+			},
+			{
 				"name": "03 Arrivals and Departures",
 				"text": "[RWY] 03",
 				"dir1": ["03", 16]
-			}],
-			"4": [{
+			},
+			{
 				"name": "06 Arrivals and Departures",
 				"text": "[RWY] 06",
 				"dir1": ["06", 60]
-			}],
-			"5": [{
+			},
+			{
 				"name": "03 and 06 Arrivals, 03 Departures (North), 21 other Departures",
 				"text": "[RWY] 03 [FOR ARRS] , [RWY] 03 [FOR DEP VIA GURAK, OTLED, AVNEX, MANDU, SOLUS & KEELS] , [RWY] 06 [FOR ALL OTHER DEPS]",
 				"dir1": ["03", 16],
 				"dir2": ["06", 60]
-			}]
-		},
-		"approachTypes":{}
+			}
+		],
+		"approachTypes":[]
+	},
+	"YBRK": {
+		"name": "[ROCKHAMPTON]",
+		"firstContact": "[ON FIRST CONTACT WITH RK GND, TWR, OR APP, NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YBCS": {
+		"name": "[CAIRNS]",
+		"firstContact": "[ON FIRST CONTACT WITH] [CAIRNS] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YMAV": {
+		"name": "[AVALON]",
+		"firstContact": "[ON FIRST CONTACT WITH AV TWR OR ML APP, NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YBRM": {
+		"name": "[BROOME]",
+		"firstContact": "[ON FIRST CONTACT WITH BRM TWR OR GND, NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YPDN": {
+		"name": "[DARWIN]",
+		"depFreq": true,
+		"firstContact": "[ON FIRST CONTACT WITH] [DARWIN] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YBTL": {
+		"name": "[TOWNSVILLE]",
+		"gndAppFreq": true,
+		"firstContact": "[ON FIRST CONTACT WITH] [TOWNSVILLE] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YAMB": {
+		"name": "[AMBERLY]",
+		"firstContact": "[ON FIRST CONTACT WITH] [AMBERLY] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YSTW": {
+		"name": "[TAMWORTH]",
+		"firstContact": "[ON FIRST CONTACT WITH] [TAMWORTH] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YWLM": {
+		"name": "[WILLIAMTOWN]",
+		"firstContact": "[ON FIRST CONTACT WITH] [WILLIAMTOWN] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YSRI": {
+		"name": "[RICHMOND]",
+		"firstContact": "[ON FIRST CONTACT WITH] [RICHMOND] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YSNW": {
+		"name": "[NOWRA]",
+		"firstContact": "[ON FIRST CONTACT WITH] [NOWRA] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YMES": {
+		"name": "[EAST SALE]",
+		"firstContact": "[ON FIRST CONTACT WITH] [EAST SALE] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YPED": {
+		"name": "[EDINBURGH]",
+		"firstContact": "[ON FIRST CONTACT WITH] [EDINBURGH] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YPEA": {
+		"name": "[PEARCE]",
+		"firstContact": "[ON FIRST CONTACT WITH] [PEARCE] [NOTIFY RECEIPT]",
+		"runwayModes": [],
+		"approachTypes": []
 	}
 }

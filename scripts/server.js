@@ -20,7 +20,7 @@ function startServer(){
     // Changes the button
     document.getElementById("startServer").setAttribute("onClick", "");
     document.getElementById("startServer").setAttribute("class", "disabled");
-    document.getElementById("status").innerHTML = "Local HTTP server running on localhost:8000.<br>ATIS Maker URL: \"http://localhost:3000/?info=$atiscode&metar=$metar($atisairport)\"";
+    document.getElementById("status").innerHTML = "Local HTTP server running on localhost:8000.<br>ATIS Maker URL: \"<b>http://localhost:3000/?info=$atiscode&metar=$metar($atisairport)</b>\"";
 
     http.createServer(function(request, response){
 
@@ -28,7 +28,7 @@ function startServer(){
         response.writeHead(200, {'Content-type':'text/plan'});
 		
         // Take the incoming data and process it
-        var textAtis = generateATIS(request);
+        var textAtis = ATIS.generate(request);
 
         // Text data
         response.body = false;
@@ -41,6 +41,10 @@ function startServer(){
 
 }
 
+// Todo:
 function stopServer(){
 
 }
+
+// Start the server
+startServer();

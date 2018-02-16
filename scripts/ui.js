@@ -2,123 +2,125 @@
  * Created by Eoin on 4/10/2017.
  */
 
-// function to build the UI
-function buildUi(met, atisId){
+class UI{
+    static constructor(){
 
-    // Inserts the METAR
-    document.getElementById("metarText").innerHTML = met;
-
-    // Changes the ATIS ID
-    document.getElementById("atisID").value = atisId;
-
-    /*******************
-    APPROACH TABLE START
-     *******************/
-
-    // Builds the approach table
-    // String of options
-    var appString = "";
-
-    // Loops through the approach types
-    Object.keys(apObj.approachTypes).forEach(function(key,i) {
-        // key: the name of the object key
-        // index: the ordinal position of the key within the object
-
-        // Starting the select menu
-        appString = appString.concat('<option value="' + apObj.approachTypes[key][0].text + '">' + apObj.approachTypes[key][0].name + '</option>');
-    });
-
-    // Adds the default approach types (If they don't exist
-    // Loops through the approach types
-
-    if(!appTypeExists(apObj.approachTypes,'[EXP INSTR APCH]')){
-        appString = appString.concat('<option value="[EXP INSTR APCH]">Instrument Approach</option>');
-    }
-    if(!appTypeExists(apObj.approachTypes,'')){
-        appString = appString.concat('<option value="">Visual Approach</option>');
     }
 
-    // Inserts the HTML into the approach section
-    document.getElementById("apchSelect").innerHTML = appString;
+    // Function to build the UI
+    static build(met, atisId){
 
-    /******************
-     APPROACH TABLE END
-     ******************/
+        // Inserts the METAR
+        document.getElementById("metarText").innerHTML = met;
 
-    /******************
-     RUNWAY TABLE START
-     ******************/
+        // Changes the ATIS ID
+        document.getElementById("atisID").value = atisId;
 
-    // Builds the approach table
-    // String of options
-    var rwyString = "";
+        /*******************
+        APPROACH TABLE START
+         *******************/
 
-    // Loops through the runway modes
-    Object.keys(apObj.runwayModes).forEach(function(key,i) {
-        // key: the name of the object key
-        // index: the ordinal position of the key within the object
+        // Builds the approach table
+        // String of options
+        var appString = "";
 
-        // Starting the select menu
-        rwyString = rwyString.concat('<option value="' + apObj.runwayModes[key][0].text + '" id="' + apObj.runwayModes[key][0].text + '">' + apObj.runwayModes[key][0].name + '</option>');
-    });
+        // Adds the default approach types (If they don't exist)
+        if(ATIS.apObj.approachTypes.length == 0){
+            appString = appString.concat('<option value="[EXP INSTR APCH] , ">Instrument Approach</option>');
+            appString = appString.concat('<option value="">Visual Approach</option>');
+        }
 
-    // Adds the default runway selector
-    rwyString = rwyString.concat('<option value="manual">Other</option>');
+        // Loops through the approach types
+        for(let i = 0 ; i < ATIS.apObj.approachTypes.length; i++){
 
-    // Inserts the HTML into the approach section
-    document.getElementById("rwySelect").innerHTML = rwyString;
+            // Starting the select menu
+            appString = appString.concat('<option value="' + ATIS.apObj.approachTypes[i].text + '">' + ATIS.apObj.approachTypes[i].name + '</option>');
+        }
 
-    /****************
-     RUNWAY TABLE END
-     ****************/
-}
+        // Inserts the HTML into the approach section
+        document.getElementById("apchSelect").innerHTML = appString;
 
-// Function to check weather an approach type exists
-function appTypeExists(types,find){
+        /******************
+         APPROACH TABLE END
+         ******************/
 
-    // Loop through the types
-    for(var i = 0; i < types.length; i++){
-        if(types[i][0].text === find){
-            return true;
+        /******************
+         RUNWAY TABLE START
+         ******************/
+
+        // Builds the approach table
+        // String of options
+        var rwyString = "";
+
+        for(let i = 0; i < ATIS.apObj.runwayModes.length; i++){
+
+            // Starting the select menu
+            rwyString = rwyString.concat('<option value="' + ATIS.apObj.runwayModes[i].text + '" id="' + ATIS.apObj.runwayModes[i].text + '">' + ATIS.apObj.runwayModes[i].name + '</option>');
+        }
+
+        // Adds the default runway selector
+        rwyString = rwyString.concat('<option value="manual">Enter Manually bellow</option>');
+
+        // Inserts the HTML into the approach section
+        document.getElementById("rwySelect").innerHTML = rwyString;
+
+        // Check other stuff
+        this.checkManualrunway();
+        this.checkDepFreq();
+        this.checkGndAppFreq();
+
+        /****************
+         RUNWAY TABLE END
+         ****************/
+    }
+
+    // Functions to show/hide manual runway entry
+    static checkManualrunway(){
+        if(document.getElementById("rwySelect").value == "manual"){
+            this.showManualRunway()
+        } else {
+            this.hideManualRunway()
         }
     }
+    static showManualRunway(){
+        document.getElementById("manRwy1Row").setAttribute("style", "display: table-row;")
+        document.getElementById("manRwy2Row").setAttribute("style", "display: table-row;")
+    }
+    static hideManualRunway(){
+        document.getElementById("manRwy1Row").setAttribute("style", "display: none;")
+        document.getElementById("manRwy2Row").setAttribute("style", "display: none;")
+    }
 
-    return false;
-}
-
-// Get operational info
-function getOper(){
-
-    // Var for return data over here because it wouldn't work if the data was returned elsewhere
-    var returnData = "";
-
-    // Get's the current runway mode
-    var rwyMode = document.getElementById("rwySelect").value;
-
-    // Loops through the runway modes
-    Object.keys(apObj.runwayModes).forEach(function(key,i) {
-        // key: the name of the object key
-        // index: the ordinal position of the key within the object
-
-        // When the modes equal
-        if(rwyMode === apObj.runwayModes[i][0].text){
-
-            // Try catch if the oper info section doesn't exist
-            try{
-                // Get the operational info
-                var oper = apObj.runwayModes[i][0].oper;
-
-                // Inserts it to HTML
-                document.getElementById("operInfo").value = oper.replace(/\[/g,"").replace(/\]/g,"");
-
-                returnData = oper + " , ";
-
-            } catch(e){
-                document.getElementById("operInfo").value = "";
-                returnData = ""
-            }
+    // Departure frequency
+    static checkDepFreq(){
+        if(ATIS.apObj.depFreq){
+            this.showDepFreq()
+        } else {
+            this.hideDepFreq()
         }
-    });
+    }
+    static showDepFreq(){
+        document.getElementById("depFreqRow").setAttribute("style", "display: table-row;")
+    }
+    static hideDepFreq(){
+        document.getElementById("depFreqRow").setAttribute("style", "display: none;")
+    }
 
-    return returnData;
+    // GND/APP frequency
+    static checkGndAppFreq(){
+        if(ATIS.apObj.gndAppFreq){
+            this.showGndAppFreq()
+        } else {
+            this.hideGndAppFreq()
+        }
+    }
+    static showGndAppFreq(){
+        document.getElementById("gndFreqRow").setAttribute("style", "display: table-row;")
+        document.getElementById("appFreqRow").setAttribute("style", "display: table-row;")
+    }
+    static hideGndAppFreq(){
+        document.getElementById("gndFreqRow").setAttribute("style", "display: none;")
+        document.getElementById("appFreqRow").setAttribute("style", "display: none;")
+    }
+
 }
