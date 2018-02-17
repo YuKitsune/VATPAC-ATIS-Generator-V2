@@ -8,13 +8,7 @@ class UI{
     }
 
     // Function to build the UI
-    static build(met, atisId){
-
-        // Inserts the METAR
-        document.getElementById("metarText").innerHTML = met;
-
-        // Changes the ATIS ID
-        document.getElementById("atisID").value = atisId;
+    static build(){
 
         /*******************
         APPROACH TABLE START

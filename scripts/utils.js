@@ -1,3 +1,7 @@
+/**
+ * Created by Eoin on 11/02/2018.
+ */
+
 class Utils{
 	static constructor(){
 
@@ -46,8 +50,6 @@ class Utils{
         // To radians
         let diff = Math.abs((rwyDir - wndDir) * (Math.PI / 180));
 
-        console.log(diff);
-
         // Crosswind
         let crosswind = Math.abs(Math.round(spd * Math.sin(diff)));
 
@@ -55,8 +57,8 @@ class Utils{
         let tailwind = Math.abs(Math.round(spd * Math.cos(diff)));
 
         // Check the components
-        if(!(crosswind >= 1)) return null;
-        if(!(tailwind >= 1)) return null;
+        if(crosswind <= 1) crosswind = null;
+        if(tailwind <= 1) tailwind = null;
 
         // Return values
         return {

@@ -99,12 +99,6 @@ class ATIS{
             // ATID ID checking and metar decoding
             // ***********************************
 
-            // If ATIS id's not equal (due to offset from above)
-            // Todo: Stress test this
-            if(this.prevID && Utils.nextChar(this.prevID) !== parsedUrlQuery.info){
-                parsedUrlQuery.info = Utils.nextChar(parsedUrlQuery.info);
-            }
-
             // Assign the elements to variables
             let atisID = parsedUrlQuery.info;
             let textMetar = parsedUrlQuery.metar;
@@ -137,7 +131,7 @@ class ATIS{
             // ATIS ID limiting
             // ****************
 
-            // Checks the ATIS ID
+			// Checks the ATIS ID
             // If no limits
             if(!this.apObj.idLimit){
 
@@ -147,17 +141,41 @@ class ATIS{
                     // Return to A
                     atisID = "A";
                     this.prevID = "A";
+
+                    // Notification
+                    Notify.atisLimit("A");
+                } else {
+                	this.prevID = atisID;
                 }
             } else { // If there are limits
 
-                // If end of limit reached
-                if(this.prevID == Utils.nextChar(this.apObj.idLimit.end)){
+            	// If at the end
+            	if(atisID.charCodeAt(0) == this.apObj.idLimit.end.charCodeAt(0) + 1){
 
-                    // Return to start
-                    this.prevID = this.apObj.idLimit.start;
-                    this.prevID = this.apObj.idLimit.start;
+            		// Return to start
+            		atisID = this.apObj.idLimit.start;
+            		this.prevID = this.apObj.idLimit.start;
+
+                    // Notification
+                    Notify.atisLimit(this.apObj.idLimit.start);
+
+            	} else if (atisID.charCodeAt(0) < this.apObj.idLimit.start.charCodeAt(0) ||
+    				atisID.charCodeAt(0) > this.apObj.idLimit.end.charCodeAt(0) + 1
+				) { // Out of range
+
+            		// Return to start
+            		atisID = this.apObj.idLimit.start;
+            		this.prevID = this.apObj.idLimit.start;
+
+                    // Notification
+                    Notify.atisLimit(this.apObj.idLimit.start);
+            	} else {
+                	this.prevID = atisID;
                 }
             }
+
+            // HTML
+            document.getElementById("atisID").value = atisID;
 
             // ***************
             // ATIS processing
@@ -229,7 +247,12 @@ class ATIS{
             }
 
             // HTML
-            document.getElementById("tmp").value = met.temperature;
+            if(met.temperature){
+            	document.getElementById("tmp").value = met.temperature;
+            } else {
+                document.getElementById("tmp").value = "NAVBL";
+            }
+            
             if(met.altimeterInHpa){
                 document.getElementById("qnh").value = met.altimeterInHpa;
             } else {
@@ -365,27 +388,27 @@ class ATIS{
                             // First runway
                             // Crosswind
                             if(components1 && components1.xw){
-                                uiData = uiData.concat("MX XW " + components1.xw + " KT RWY " + Utils.removeBrackets(runwayMode.dir1[0]) + ", ");
-                                returnData = returnData.concat("[MX] [XW] " + components1.xw + " [KT] [RWY] " + runwayMode.dir1[0] + " , ")
+                                uiData = uiData.concat(" MX XW " + components1.xw + " KT RWY " + Utils.removeBrackets(runwayMode.dir1[0]));
+                                returnData = returnData.concat("[MX] [XW] " + components1.xw + " [KT] [RWY] " + runwayMode.dir1[0] + " ")
                             }
 
                             // Tailwind
                             if(components1 && components1.tw){
-                                uiData = uiData.concat("MX TW " + components1.tw + " KT RWY " + Utils.removeBrackets(runwayMode.dir1[0]) + ", ");
-                                returnData = returnData.concat("[MX] [TW] " + components1.tw + " [KT] [RWY] " + runwayMode.dir1[0] + " , ")
+                                uiData = uiData.concat(" MX TW " + components1.tw + " KT RWY " + Utils.removeBrackets(runwayMode.dir1[0]));
+                                returnData = returnData.concat("[MX] [TW] " + components1.tw + " [KT] [RWY] " + runwayMode.dir1[0] + " ")
                             }
 
                             // Second runway
                             // Crosswind
                             if(components2 && components2.xw){
-                                uiData = uiData.concat("MX XW " + components1.xw + " KT RWY " + Utils.removeBrackets(runwayMode.dir2[0]) + ", ");
-                                returnData = returnData.concat("[MX] [XW] " + components2.xw + " [KT] [RWY] " + runwayMode.dir2[0] + " , ")
+                                uiData = uiData.concat(" MX XW " + components1.xw + " KT RWY " + Utils.removeBrackets(runwayMode.dir2[0]));
+                                returnData = returnData.concat("[MX] [XW] " + components2.xw + " [KT] [RWY] " + runwayMode.dir2[0] + " ")
                             }
 
                             // Tailwind
                             if(components2 && components2.tw){
-                                uiData = uiData.concat("MX TW " + components2.tw + " KT RWY " + Utils.removeBrackets(runwayMode.dir2[0]) + ", ");
-                                returnData = returnData.concat("[MX] [TW] " + components2.tw + " [KT] [RWY] " + runwayMode.dir2[0] + " , ")
+                                uiData = uiData.concat(" MX TW " + components2.tw + " KT RWY " + Utils.removeBrackets(runwayMode.dir2[0]));
+                                returnData = returnData.concat("[MX] [TW] " + components2.tw + " [KT] [RWY] " + runwayMode.dir2[0] + " ")
                             }
                         } else {
 
@@ -394,14 +417,14 @@ class ATIS{
                             // First runway
                             // Crosswind
                             if(components && components.xw){
-                                uiData = uiData.concat("MX XW " + components.xw + " KT ,");
-                                returnData = returnData.concat("[MX] [XW] " + components.xw + " [KT] , ")
+                                uiData = uiData.concat(" MX XW " + components.xw + " KT ");
+                                returnData = returnData.concat("[MX] [XW] " + components.xw + " [KT] ")
                             }
 
                             // Tailwind
                             if(components && components.tw){
-                                uiData = uiData.concat("MX TW " + components.tw + " KT");
-                                returnData = returnData.concat("[MX] [TW] " + components.tw + " [KT] , ")
+                                uiData = uiData.concat(" MX TW " + components.tw + " KT ");
+                                returnData = returnData.concat("[MX] [TW] " + components.tw + " [KT] ")
                             }
                         }
                     }
@@ -420,23 +443,23 @@ class ATIS{
                     // First runway
                     // Crosswind
                     if(!components1.xw === null){
-                        returnData = returnData.concat("[MX] [XW] " + components1.xw + " [KT] [RWY] " + rwy1 + " , ")
+                        returnData = returnData.concat("[MX] [XW] " + components1.xw + " [KT] [RWY] " + rwy1 + " ")
                     }
 
                     // Tailwind
                     if(!components1.tw === null){
-                        returnData = returnData.concat("[MX] [TW] " + components1.tw + " [KT] [RWY] " + rwy1 + " , ")
+                        returnData = returnData.concat("[MX] [TW] " + components1.tw + " [KT] [RWY] " + rwy1 + " ")
                     }
 
                     // Second runway
                     // Crosswind
                     if(!components2.xw === null){
-                        returnData = returnData.concat("[MX] [XW] " + components2.xw + " [KT] [RWY] " + rwy2 + " , ")
+                        returnData = returnData.concat("[MX] [XW] " + components2.xw + " [KT] [RWY] " + rwy2 + " ")
                     }
 
                     // Tailwind
                     if(!components2.tw === null){
-                        returnData = returnData.concat("[MX] [TW] " + components2.tw + " [KT] [RWY] " + rwy2 + " , ")
+                        returnData = returnData.concat("[MX] [TW] " + components2.tw + " [KT] [RWY] " + rwy2 + " ")
                     }
                 } else {
 
@@ -445,12 +468,12 @@ class ATIS{
                     try{
                         // Crosswind
                         if(!components.xw === null){
-                            returnData = returnData.concat("[MX] [XW] " + components.xw + " [KT] , ")
+                            returnData = returnData.concat("[MX] [XW] " + components.xw + " [KT] ")
                         }
 
                         // Tailwind
                         if(!components.tw === null){
-                            returnData = returnData.concat("[MX] [TW] " + components.tw + " [KT] , ")
+                            returnData = returnData.concat("[MX] [TW] " + components.tw + " [KT] ")
                         }
                     } catch(e){
 
