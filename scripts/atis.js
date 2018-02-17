@@ -345,14 +345,14 @@ class ATIS{
             uiData = uiData.concat(" " + wind.variation.max + "/" + wind.variation.min);
         }
 
-        // Crosswind
-        if(!(wind.speed > 10)){
+        // Crosswind / Tailwind
+        if(wind.speed > 10){
 
             // Get runways
             // If from JSON
             if(this.apObj.runwayModes && this.apObj.runwayModes.length !== 0){
                 for (let i = 0; i < this.apObj.runwayModes.length; i++){
-                    if(this.apObj.runwayModes[i] == document.getElementById("rwySelect").value){
+                    if(this.apObj.runwayModes[i].text == document.getElementById("rwySelect").value){
 
                         let runwayMode = this.apObj.runwayModes[i];
 
@@ -364,26 +364,26 @@ class ATIS{
 
                             // First runway
                             // Crosswind
-                            if(!components1.xw === null){
+                            if(components1 && components1.xw){
                                 uiData = uiData.concat("MX XW " + components1.xw + " KT RWY " + Utils.removeBrackets(runwayMode.dir1[0]) + ", ");
                                 returnData = returnData.concat("[MX] [XW] " + components1.xw + " [KT] [RWY] " + runwayMode.dir1[0] + " , ")
                             }
 
                             // Tailwind
-                            if(!components1.tw === null){
+                            if(components1 && components1.tw){
                                 uiData = uiData.concat("MX TW " + components1.tw + " KT RWY " + Utils.removeBrackets(runwayMode.dir1[0]) + ", ");
                                 returnData = returnData.concat("[MX] [TW] " + components1.tw + " [KT] [RWY] " + runwayMode.dir1[0] + " , ")
                             }
 
                             // Second runway
                             // Crosswind
-                            if(!components2.xw === null){
+                            if(components2 && components2.xw){
                                 uiData = uiData.concat("MX XW " + components1.xw + " KT RWY " + Utils.removeBrackets(runwayMode.dir2[0]) + ", ");
                                 returnData = returnData.concat("[MX] [XW] " + components2.xw + " [KT] [RWY] " + runwayMode.dir2[0] + " , ")
                             }
 
                             // Tailwind
-                            if(!components2.tw === null){
+                            if(components2 && components2.tw){
                                 uiData = uiData.concat("MX TW " + components2.tw + " KT RWY " + Utils.removeBrackets(runwayMode.dir2[0]) + ", ");
                                 returnData = returnData.concat("[MX] [TW] " + components2.tw + " [KT] [RWY] " + runwayMode.dir2[0] + " , ")
                             }
@@ -393,13 +393,13 @@ class ATIS{
 
                             // First runway
                             // Crosswind
-                            if(!components.xw === null){
+                            if(components && components.xw){
                                 uiData = uiData.concat("MX XW " + components.xw + " KT ,");
                                 returnData = returnData.concat("[MX] [XW] " + components.xw + " [KT] , ")
                             }
 
                             // Tailwind
-                            if(!components.tw === null){
+                            if(components && components.tw){
                                 uiData = uiData.concat("MX TW " + components.tw + " KT");
                                 returnData = returnData.concat("[MX] [TW] " + components.tw + " [KT] , ")
                             }
@@ -471,13 +471,17 @@ class ATIS{
         let returnData;
 
         if(!cavok){
-            if(vis === 9999){
-                returnData = "[VIS] [GREATER THAN 10 KM]"
-            } else if (vis > 5000 ) {
-                returnData = "[VIS] " + vis.toString().substr(0,1) + " [KM]" + this.visWxMod(wx);
-            } else {
-                returnData = "[VIS] {" + vis.toString() + "} [METERS]" + this.visWxMod(wx);
-            }
+        	if(vis){
+	            if(vis === 9999){
+	                returnData = "[VIS] [GREATER THAN 10 KM]"
+	            } else if (vis > 5000 ) {
+	                returnData = "[VIS] " + vis.toString().substr(0,1) + " [KM]" + this.visWxMod(wx);
+	            } else {
+	                returnData = "[VIS] {" + vis.toString() + "} [METERS]" + this.visWxMod(wx);
+	            }
+        	} else {
+            	returnData = "[NAVBL]";
+        	}
         } else {
             returnData = "[CAVOK]";
         }

@@ -19,9 +19,6 @@ class Utils{
             return null;
         }
 
-        // Check the wind component
-        if(!(spd > 10)) return null;
-
         // If string
         if(typeof rwyDir == "string"){
 
@@ -46,17 +43,20 @@ class Utils{
         // Calculations
 
         // Angle difference
-        let diff = Math.abs(rwyDir - wndDir);
+        // To radians
+        let diff = Math.abs((rwyDir - wndDir) * (Math.PI / 180));
+
+        console.log(diff);
 
         // Crosswind
-        let crosswind = Math.abs(Math.ceil(spd * Math.sin(diff)));
+        let crosswind = Math.abs(Math.round(spd * Math.sin(diff)));
 
         // Tailwind
-        let tailwind = Math.abs(Math.ceil(spd * Math.cos(diff)));
+        let tailwind = Math.abs(Math.round(spd * Math.cos(diff)));
 
         // Check the components
-        if(!(crosswind > 1)) return null;
-        if(!(tailwind > 1)) return null;
+        if(!(crosswind >= 1)) return null;
+        if(!(tailwind >= 1)) return null;
 
         // Return values
         return {

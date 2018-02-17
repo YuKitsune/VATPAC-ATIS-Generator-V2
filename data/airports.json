@@ -47,7 +47,7 @@
 			},
 			{
 				"name": "SODPROPS",
-				"text": "[RWY] 34L [FOR ARRS] , [RWY] 16L [FOR DEPS] , [RWY] 34L [AVBL FOR DEP IF REQD OR AS DIRECTED BY ATC]",
+				"text": "[RWY] 34L [FOR ARRS] , [RWY] 34L [AVBL FOR DEP IF REQD OR AS DIRECTED BY ATC] [RWY] 16L [FOR ALL OTHER DEPS] ,",
 				"oper": "[SIMULT OPPOSITE DIR PARL RWY OPS IN PROGRESS] , ",
 				"dir1": ["34R", 155],
 				"dir2": ["16L", 335]
