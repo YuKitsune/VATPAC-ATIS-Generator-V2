@@ -12,6 +12,9 @@ const notifier = new WindowsToaster({
 // Notification class
 class Notify{
 	static constructor(){
+
+		this.atisUpdate = new Audio('data/atis.wav');
+
 	}
 
 	// ATIS ID limit notification
@@ -19,7 +22,7 @@ class Notify{
 		notifier.notify({
 				title: "ATIS ID limit", // String. Required
 				message: "The ATIS ID is out of limits, the generator will set the ID to " + start + ". \nPlease reflect this in EuroScope.", // String. Required if remove is not defined
-				// icon: void 0, // String. Absolute path to Icon
+				icon: "build/icon.ico", // String. Absolute path to Icon
 				sound: true, // Bool | String (as defined by http://msdn.microsoft.com/en-us/library/windows/apps/hh761492.aspx)
 				wait: true, // Bool. Wait for User Action against Notification or times out
 				// id: void 0, // Number. ID to use for closing notification.

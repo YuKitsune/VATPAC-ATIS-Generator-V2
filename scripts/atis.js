@@ -11,6 +11,9 @@ class ATIS{
         // Previous request
         this.prevRequest;
 
+        // Previous met object
+        this.prevMet;
+
         // Pervious ICAO
         this.prevICAO;
 
@@ -24,30 +27,31 @@ class ATIS{
     // Function to get airport data based on icao code
     static getAirport(icao){
 
-        var returnData;
+        let returnData;
+		
+		// Fs for loading data
+		// let fs = require("fs");
 
-        // Ajax request to the file
-        $.ajax({
-            type: "GET",
-            url: "data/airports.json",
-            async: false,
-            success: function (data) {
+		// Get the airport.json file
+		// the env.APPDATA directory changes for some reason
+		let file;
+		try{
+			file = require(process.env.APPDATA + "\\airports.json");
+		} catch (e){
+			file = require(process.env.APPDATA + "\\VATPAC\\ATIS\\airports.json");
+		}
 
-                data = JSON.parse(data);
-
-                // If the given ICAO is an element in the object.
-                if(data.hasOwnProperty(icao)){
-                    returnData = data[icao];
-                } else {
-                    returnData = {
-                        "name": icao,
-                        "firstContact": "[ON FIRST CONTACT WITH] " + icao + " [NOTIFY RECEIPT]",
-                        "runwayModes": [],
-                        "approachTypes": []
-                    };
-                }
-            }
-        });
+        // If the given ICAO is an element in the object.
+		if(file.hasOwnProperty(icao)){
+			returnData = file[icao];
+		} else {
+			returnData = {
+				"name": icao,
+				"firstContact": "[ON FIRST CONTACT WITH] " + icao + " [NOTIFY RECEIPT]",
+				"runwayModes": [],
+				"approachTypes": []
+			};
+		}
 
         // Return the data
         return returnData;
@@ -106,7 +110,11 @@ class ATIS{
             // Parses the METAR into an object
             let met = decodeMetar(textMetar);
 
+            this.prevMet = met;
             console.log(met);
+
+            // HTML
+            document.getElementById("metarText").innerHTML = textMetar;
 
             // *****************
             // First load checks
@@ -252,7 +260,7 @@ class ATIS{
             } else {
                 document.getElementById("tmp").value = "NAVBL";
             }
-            
+
             if(met.altimeterInHpa){
                 document.getElementById("qnh").value = met.altimeterInHpa;
             } else {
@@ -358,7 +366,7 @@ class ATIS{
 
         // Gusts
         if(wind.gust !== null){
-            returnData = returnData.concat("[GT] " + wndgst + " [KT] ");
+            returnData = returnData.concat("[GT] " + wind.gust + " [KT] ");
             uiData = uiData.concat("G" + wind.gust);
         }
 
