@@ -10,7 +10,7 @@ The VATPAC EuroScope ATIS Generator v2 utilises this feature by hosting a (NodeJ
 When EuroScope detects a METAR update, it will send a request to the ATIS Generator with the new METAR and ATIS ID (along with some other controller information), the ATIS generator then decodes the METAR, and takes user input in regards to runway selection, approach type selection, etc. Then compiles a [multiple-record](http://www.euroscope.hu/mediawiki/index.php?title=Voice_ATIS#Multiple-Recording_Mode "multiple-record") ATIS for EuroScope to use. Once the multiple-record ATIS string is generated, the local server responds to EuroScopes request with the raw string of text, which EuroScope then uses as the ATIS to broadcast to the VATSIM network.
 
 # Contributing
-Any contributions are apreciated, but all changes to ATIS format must follow the [VATPAC ATIS policy](https://operations.vatpac.org/documents/policy/Controller%20Information%20and%20ATIS%20Policy.pdf "VATPAC ATIS policy") and [vMATS](https://drive.google.com/file/d/0B_Du2RaHQXG6cTE0aDlZeHBWUWM/view "vMATS").
+Any contributions are apreciated, including those to the data file(s), but all changes to ATIS format must follow the [VATPAC ATIS policy](https://operations.vatpac.org/documents/policy/Controller%20Information%20and%20ATIS%20Policy.pdf "VATPAC ATIS policy") and [vMATS](https://drive.google.com/file/d/0B_Du2RaHQXG6cTE0aDlZeHBWUWM/view "vMATS").
 
 If you wish to contribute your code, clone the repo and run `npm i` to get started.
 
