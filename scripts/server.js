@@ -18,9 +18,9 @@ var url = require('url');
 function startServer(){
 
     // Changes the button
-    document.getElementById("startServer").setAttribute("onClick", "");
-    document.getElementById("startServer").setAttribute("class", "disabled");
-    document.getElementById("status").innerHTML = "Local HTTP server running on localhost:3000.<br>ATIS Maker URL: <br>\"<b>http://localhost:3000/?info=$atiscode&metar=$metar($atisairport)</b>\"";
+    // document.getElementById("startServer").setAttribute("onClick", "");
+    // document.getElementById("startServer").setAttribute("class", "disabled");
+    document.getElementById("status").innerHTML = "Local HTTP server running on localhost:3000.<br>ATIS Maker URL: <br>\"<b>http://localhost:3000/?info=$atiscode&metar=$metar($atisairport)&callsign=$callsign&freq=$com</b>\"";
 
     http.createServer(function(request, response){
 

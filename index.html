@@ -85,15 +85,32 @@
                                 <option value="" selected>DRY</option>
                                 <option value="[DAMP] , ">DAMP</option>
                                 <option value="[WET] , ">WET</option>
+                                <option value="[WATER PATCHES] , ">WATER PATCHES</option>
+                                <option value="[FLOODED] , ">FLOODED</option>
                             </select>
                         </td>
                     </tr>
+
+                    <!-- Operational info START -->
+
                     <tr>
                         <td class="bluelad tableName">OPR INFO:</td>
                         <td class="bluelad">
                             <input type="text" style="width:100%;" id="operInfo" disabled>
                         </td>
                     </tr>
+                    <tr>
+                        <td class="bluelad"></td>
+                        <td class="bluelad">
+                            <!-- Checkbox -->
+                            <input type="checkbox" id="operDelay" class="bluelad">
+                            <label class="bluelad" for="operDelay"><span></span> Delaying action</label>
+                            <input type="number" id="operDelayMin" class="bluelad" min="1" max="90" step="1" value="1" placeholder="Delay time">
+                        </td>
+                    </tr>
+
+                    <!-- Operational info END -->
+
                     <tr>
                         <td class="bluelad tableName">WND:</td>
                         <td class="bluelad">
@@ -157,11 +174,62 @@
 
                     <!--  GND APP frequency entry END  -->
 
+
+                    <!-- Windshear START -->
+
+                    <!-- Checkbox -->
                     <tr>
                         <td class="bluelad"></td>
                         <td class="bluelad">
-                            <button id="startServer" style="width:15%; float:left;" onClick="startServer()">START</button>
-                            <div id="status" class="sunken" style="width:80%; float:right;">Local ATIS server offline...</div>
+                            <!-- Checkbox -->
+                            <input type="checkbox" id="wndShr" class="bluelad" onclick="UI.checkWndShr()">
+                            <label class="bluelad" for="wndShr"><span></span> Windshear warning</label>
+                        </td>
+                    </tr>
+
+                    <!-- Type -->
+                    <tr id="wndShrTypRow" style="display: none;">
+                        <td class="bluelad tableName">TYP:</td>
+                        <td class="bluelad">
+                            <select style="width:100%;" id="wndShrTyp">
+                                <option value="[OVERSHOOT]" selected>OVERSHOOT</option>
+                                <option value="[UNDERSHOOT]">UNDERSHOOT</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- Altitude -->
+                    <tr id="wndShrAltRow" style="display: none;">
+                        <td class="bluelad tableName">ALT:</td>
+                        <td class="bluelad">
+                            <input type="number" id="wndShrAlt" class="bluelad" min="100" max="5000" step="100" value="0">
+                        </td>
+                    </tr>
+
+                    <!-- Runway -->
+                    <tr id="wndShrRwyRow" style="display: none;">
+                        <td class="bluelad tableName">RWY:</td>
+                        <td class="bluelad">
+                            <input id="wndShrRwy" class="bluelad" placeholder="Eg. 16L" maxlength="3">
+                        </td>
+                    </tr>
+
+                    <!-- Windshear END -->
+
+                    <!-- Top down services -->
+                    <tr>
+                        <td class="bluelad"></td>
+                        <td class="bluelad">
+                            <!-- Checkbox -->
+                            <input type="checkbox" id="topDown" class="bluelad">
+                            <label class="bluelad" for="topDown"><span></span> Providing top-down services</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="bluelad"></td>
+                        <td class="bluelad">
+                            <div id="status" class="sunken">Local ATIS server offline...</div>
                         </td>
                     </tr>
                 </tbody>
@@ -181,6 +249,8 @@
     <script src="scripts/metarDecode.js"></script>
     <!-- ATIS Generator -->
     <script src="scripts/atis.js"></script>
+    <!-- First contact -->
+    <script src="scripts/contact.js"></script>
     <!-- UI -->
     <script src="scripts/ui.js"></script>
 </html>

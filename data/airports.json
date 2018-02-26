@@ -1,7 +1,7 @@
 {
 	"YSSY": {
 		"name": "[SYDNEY]",
-		"firstContact": "[ON FIRST CONTACT WITH] [SYDNEY] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [SYDNEY] [NOTIFY RECEIPT OF]",
 		"runwayModes": [
 			{
 				"name": "34L&R Arrivals and Departures",
@@ -83,7 +83,7 @@
 	},
 	"YBBN": {
 		"name": "[BRISBANE]",
-		"firstContact": "[ON FIRST CONTACT WITH] [BRISBANE] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [BRISBANE] [NOTIFY RECEIPT OF]",
 		"runwayModes": [
 			{
 				"name": "01 Arrivals and Departures",
@@ -145,7 +145,7 @@
 	},
 	"YBCG": {
 		"name": "[GOLD COAST]",
-		"firstContact": "[ON FIRST CONTACT WITH CG_TWR OR CG_APP NOTIFY RECEIPT OF]",
+		"firstContact": "[ON FIRST CONTACT WITH CG_TWR OR CG_APP NOTIFY RECEIPT]",
 		"runwayModes": {},
 		"approachTypes":[
 			{
@@ -164,7 +164,7 @@
 	},
 	"YMML": {
 		"name": "[MELBOURNE]",
-		"firstContact": "[ON FIRST CONTACT WITH] [MELBOURNE] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [MELBOURNE] [NOTIFY RECEIPT OF]",
 		"idLimit":{
 			"start": "N",
 			"end": "Y"
@@ -237,7 +237,7 @@
 	},
 	"YPAD": {
 		"name": "[ADELAIDE]",
-		"firstContact": "[ON FIRST CONTACT WITH] [ADELAIDE] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [ADELAIDE] [NOTIFY RECEIPT OF]",
 		"runwayModes": [
 			{
 				"name": "23 Arrivals and Departures",
@@ -274,7 +274,7 @@
 	},
 	"YPPH": {
 		"name": "[PERTH]",
-		"firstContact": "[ON FIRST CONTACT WITH] [PERTH] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [PERTH] [NOTIFY RECEIPT OF]",
 		"runwayModes": [
 			{
 				"name": "21 Arrivals and Departures",
@@ -319,7 +319,13 @@
 	},
 	"YBCS": {
 		"name": "[CAIRNS]",
-		"firstContact": "[ON FIRST CONTACT WITH] [CAIRNS] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [CAIRNS] [NOTIFY RECEIPT OF]",
+		"runwayModes": [],
+		"approachTypes": []
+	},
+	"YSCB": {
+		"name": "[CANBERRA]",
+		"firstContact": "[ON FIRST CONTACT WITH] [CANBERRA] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	},
@@ -338,62 +344,62 @@
 	"YPDN": {
 		"name": "[DARWIN]",
 		"depFreq": true,
-		"firstContact": "[ON FIRST CONTACT WITH] [DARWIN] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [DARWIN] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	},
 	"YBTL": {
 		"name": "[TOWNSVILLE]",
 		"gndAppFreq": true,
-		"firstContact": "[ON FIRST CONTACT WITH] [TOWNSVILLE] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [TOWNSVILLE] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	},
 	"YAMB": {
 		"name": "[AMBERLY]",
-		"firstContact": "[ON FIRST CONTACT WITH] [AMBERLY] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [AMBERLY] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	},
 	"YSTW": {
 		"name": "[TAMWORTH]",
-		"firstContact": "[ON FIRST CONTACT WITH] [TAMWORTH] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [TAMWORTH] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	},
 	"YWLM": {
 		"name": "[WILLIAMTOWN]",
-		"firstContact": "[ON FIRST CONTACT WITH] [WILLIAMTOWN] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [WILLIAMTOWN] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	},
 	"YSRI": {
 		"name": "[RICHMOND]",
-		"firstContact": "[ON FIRST CONTACT WITH] [RICHMOND] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [RICHMOND] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	},
 	"YSNW": {
 		"name": "[NOWRA]",
-		"firstContact": "[ON FIRST CONTACT WITH] [NOWRA] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [NOWRA] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	},
 	"YMES": {
 		"name": "[EAST SALE]",
-		"firstContact": "[ON FIRST CONTACT WITH] [EAST SALE] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [EAST SALE] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	},
 	"YPED": {
 		"name": "[EDINBURGH]",
-		"firstContact": "[ON FIRST CONTACT WITH] [EDINBURGH] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [EDINBURGH] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	},
 	"YPEA": {
 		"name": "[PEARCE]",
-		"firstContact": "[ON FIRST CONTACT WITH] [PEARCE] [NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH] [PEARCE] [NOTIFY RECEIPT OF]",
 		"runwayModes": [],
 		"approachTypes": []
 	}

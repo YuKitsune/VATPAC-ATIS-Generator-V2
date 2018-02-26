@@ -59,7 +59,7 @@ class UI{
         document.getElementById("rwySelect").innerHTML = rwyString;
 
         // Check other stuff
-        this.checkManualrunway();
+        this.checkManualRunway();
         this.checkDepFreq();
         this.checkGndAppFreq();
 
@@ -69,52 +69,70 @@ class UI{
     }
 
     // Functions to show/hide manual runway entry
-    static checkManualrunway(){
+    static checkManualRunway(){
         if(document.getElementById("rwySelect").value == "manual"){
-            this.showManualRunway()
+            this.showManualRunway();
         } else {
-            this.hideManualRunway()
+            this.hideManualRunway();
         }
     }
     static showManualRunway(){
-        document.getElementById("manRwy1Row").setAttribute("style", "display: table-row;")
-        document.getElementById("manRwy2Row").setAttribute("style", "display: table-row;")
+        document.getElementById("manRwy1Row").setAttribute("style", "display: table-row;");
+        document.getElementById("manRwy2Row").setAttribute("style", "display: table-row;");
     }
     static hideManualRunway(){
-        document.getElementById("manRwy1Row").setAttribute("style", "display: none;")
-        document.getElementById("manRwy2Row").setAttribute("style", "display: none;")
+        document.getElementById("manRwy1Row").setAttribute("style", "display: none;");
+        document.getElementById("manRwy2Row").setAttribute("style", "display: none;");
     }
 
     // Departure frequency
     static checkDepFreq(){
         if(ATIS.apObj.depFreq){
-            this.showDepFreq()
+            this.showDepFreq();
         } else {
-            this.hideDepFreq()
+            this.hideDepFreq();
         }
     }
     static showDepFreq(){
-        document.getElementById("depFreqRow").setAttribute("style", "display: table-row;")
+        document.getElementById("depFreqRow").setAttribute("style", "display: table-row;");
     }
     static hideDepFreq(){
-        document.getElementById("depFreqRow").setAttribute("style", "display: none;")
+        document.getElementById("depFreqRow").setAttribute("style", "display: none;");
     }
 
     // GND/APP frequency
     static checkGndAppFreq(){
         if(ATIS.apObj.gndAppFreq){
-            this.showGndAppFreq()
+            this.showGndAppFreq();
         } else {
-            this.hideGndAppFreq()
+            this.hideGndAppFreq();
         }
     }
     static showGndAppFreq(){
-        document.getElementById("gndFreqRow").setAttribute("style", "display: table-row;")
-        document.getElementById("appFreqRow").setAttribute("style", "display: table-row;")
+        document.getElementById("gndFreqRow").setAttribute("style", "display: table-row;");
+        document.getElementById("appFreqRow").setAttribute("style", "display: table-row;");
     }
     static hideGndAppFreq(){
-        document.getElementById("gndFreqRow").setAttribute("style", "display: none;")
-        document.getElementById("appFreqRow").setAttribute("style", "display: none;")
+        document.getElementById("gndFreqRow").setAttribute("style", "display: none;");
+        document.getElementById("appFreqRow").setAttribute("style", "display: none;");
     }
 
+    // Windshear warnings
+    static checkWndShr(){
+        if(document.getElementById("wndShr").checked){
+            this.showWndShr()
+        } else {
+            this.hideWndShr()
+        }
+    }
+    static showWndShr(){
+        document.getElementById("wndShrTypRow").setAttribute("style", "display: table-row;");
+        document.getElementById("wndShrAltRow").setAttribute("style", "display: table-row;");
+        document.getElementById("wndShrRwyRow").setAttribute("style", "display: table-row;");
+    }
+    static hideWndShr(){
+        document.getElementById("wndShrTypRow").setAttribute("style", "display: none;");
+        document.getElementById("wndShrAltRow").setAttribute("style", "display: none;");
+        document.getElementById("wndShrRwyRow").setAttribute("style", "display: none;");
+    }
 }
