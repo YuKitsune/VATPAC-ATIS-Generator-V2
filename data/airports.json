@@ -42,15 +42,15 @@
 				"name": "Curfew OPS",
 				"text": "[RWY] 34L [FOR ARRS], [RWY] 16R [FOR DEPS]",
 				"oper": "[CURFEW RWY NOMINATION CURFEW IN OPER UNTIL TIME 1900] , ",
-				"dir1": ["34L", 155],
-				"dir2": ["16R", 335]
+				"dir1": ["34L", 335],
+				"dir2": ["16R", 155]
 			},
 			{
 				"name": "SODPROPS",
 				"text": "[RWY] 34L [FOR ARRS] , [RWY] 34L [AVBL FOR DEP IF REQD OR AS DIRECTED BY ATC] [RWY] 16L [FOR ALL OTHER DEPS] ,",
 				"oper": "[SIMULT OPPOSITE DIR PARL RWY OPS IN PROGRESS] , ",
-				"dir1": ["34R", 155],
-				"dir2": ["16L", 335]
+				"dir1": ["34R", 335],
+				"dir2": ["16L", 155]
 			}
 		],
 		"approachTypes":[
@@ -76,8 +76,7 @@
 			},
 			{
 				"name": "Visual Approach",
-				"text": "",
-				"exclude": [0,1]
+				"text": ""
 			}
 		]
 	},
