@@ -29,7 +29,7 @@
 			},
 			{
 				"name": "07 Arrivals and Depatures",
-				"text": "[RWY] 0[7,]",
+				"text": "[RWY] 0[7]",
 				"dir1": ["07", 62]
 			},
 			{
