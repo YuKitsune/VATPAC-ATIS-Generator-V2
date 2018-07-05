@@ -203,7 +203,7 @@
 			},
 			{
 				"name": "LAHSO",
-				"text": "[RWY] 27 [AND] 34 [FOR ARRS] , [RWY] 27 DEPS]",
+				"text": "[RWY] 27 [AND] 34 [FOR ARRS] , [RWY] 27 [FOR DEPS]",
 				"dir2": ["27", 263],
 				"dir1": ["34", 340],
 				"oper": "[LAHSO IN PROG] , "
