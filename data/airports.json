@@ -16,20 +16,20 @@
 				"oper": "[PARL RWY OPS IN PROG] , [INDEP DEPS IN PROG] , "
 			},
 			{
-				"name": "34L&R Departures, 25 Arrivals",
+				"name": "34L&R Arrivals, 25 Departures",
 				"text": "[RWY] 34 [L&R] [FOR ARRS] , [RWY] 25 [FOR DEPS] , ",
 				"dir1": ["34 [L&R]", 335],
 				"dir2": ["25", 242]
 			},
 			{
-				"name": "16L&R Departures, 25 Arrivals",
-				"text": "[RWY] 16 [L&R] [FOR ARRS] , [RWY] 25 [FOR DEPS] , ",
-				"dir1": ["16 [L&R]", 155],
-				"dir2": ["25", 242]
+				"name": "25 Arrivals, 16L&R Departures",
+				"text": "[RWY] 25 [FOR ARRS] , [RWY] 16 [L&R] [FOR DEPS] , ",
+				"dir1": ["25", 242],
+				"dir2": ["16 [L&R]", 155]
 			},
 			{
 				"name": "07 Arrivals and Depatures",
-				"text": "[RWY] 0[7]",
+				"text": "[RWY] 07",
 				"dir1": ["07", 62]
 			},
 			{
@@ -49,7 +49,7 @@
 				"name": "SODPROPS",
 				"text": "[RWY] 34L [FOR ARRS] , [RWY] 34L [AVBL FOR DEP IF REQD OR AS DIRECTED BY ATC] [RWY] 16L [FOR ALL OTHER DEPS] ,",
 				"oper": "[SIMULT OPPOSITE DIR PARL RWY OPS IN PROGRESS] , ",
-				"dir1": ["34R", 335],
+				"dir1": ["34L", 335],
 				"dir2": ["16L", 155]
 			}
 		],
@@ -85,42 +85,42 @@
 		"firstContact": "[ON FIRST CONTACT WITH] [BRISBANE] [NOTIFY RECEIPT OF]",
 		"runwayModes": [
 			{
-				"name": "01 Arrivals and Departures",
-				"text": "[RWY] 01",
-				"dir1": ["01", 16]
+				"name": "01R Arrivals and Departures",
+				"text": "[RWY] 01R",
+				"dir1": ["01R", 16]
 			},
 			{
-				"name": "19 Arrivals and Departures",
-				"text": "[RWY] 19",
-				"dir1": ["19", 196]
+				"name": "19L Arrivals and Departures",
+				"text": "[RWY] 19L",
+				"dir1": ["19L", 196]
 			},
 			{
-				"name": "1&14 Arrivals, 01 Departures",
-				"text": "[RWY] 01 [AND] [RWY] 14 [FOR ARRS] , [RWY] 01 [FOR DEPS]",
+				"name": "01R&14 Arrivals, 01R Departures",
+				"text": "[RWY] 01R [AND] [RWY] 14 [FOR ARRS] , [RWY] 01R [FOR DEPS]",
 				"oper": "[CONVERGING RWY OPS] , ",
-				"dir1": ["01", 16],
+				"dir1": ["01R", 16],
 				"dir2": ["14", 135]
 			},
 			{
-				"name": "01&32 Arrivals, 01 Departures",
-				"text": "[RWY] 01 [AND] [RWY] 32 [FOR ARRS] , [RWY] 01 [FOR DEPS]",
+				"name": "01R&32 Arrivals, 01R Departures",
+				"text": "[RWY] 01R [AND] [RWY] 32 [FOR ARRS] , [RWY] 01R [FOR DEPS]",
 				"oper": "[CONVERGING RWY OPS] , ",
-				"dir1": ["01", 16],
+				"dir1": ["01R", 16],
 				"dir2": ["32", 315]
 			},
 			{
-				"name": "01&32 Arrivals, 32 Departures via SU, 01 Departures",
-				"text": "[RWY] 01 [AND] [RWY] 32 [FOR ARRS] , [RWY] 32 [FOR DEP VIA SU], [RWY] 01 [FOR DEPS]",
+				"name": "01R&32 Arrivals, 32 Departures via SU, 01R Departures",
+				"text": "[RWY] 01R [AND] [RWY] 32 [FOR ARRS] , [RWY] 32 [FOR DEP VIA SU], [RWY] 01R [FOR DEPS]",
 				"oper": "[CONVERGING RWY OPS] , ",
-				"dir1": ["01", 16],
+				"dir1": ["01R", 16],
 				"dir2": ["32", 315]
 			},
 			{
 				"name": "Reciprocal Runway Operations",
-				"text": "[RWY] 19 [FOR ARRS] , [RWY] 01 [FOR DEPS]",
+				"text": "[RWY] 19L [FOR ARRS] , [RWY] 01R [FOR DEPS]",
 				"oper": "[RECIPROCAL RWY OPERATIONS, START APPROVAL REQUIRED] , ",
-				"dir1": ["01", 16],
-				"dir2": ["19", 196]
+				"dir1": ["01R", 16],
+				"dir2": ["19L", 196]
 			}
 		],
 		"approachTypes":[
@@ -129,12 +129,12 @@
 				"text": "[EXP INSTR APCH] , "
 			},
 			{
-				"name": "Instrument Approach for Traffic (19)",
-				"text": "[EXP INSTR APCH] [RWY] 19 [FOR TFC MGMT] , "
+				"name": "Instrument Approach for Traffic (19L)",
+				"text": "[EXP INSTR APCH] [RWY] 19L [FOR TFC MGMT] , "
 			},
 			{
-				"name": "Instrument Approach for Traffic (01)",
-				"text": "[EXP INSTR APCH] [RWY] 01 [FOR TFC MGMT] , "
+				"name": "Instrument Approach for Traffic (01R)",
+				"text": "[EXP INSTR APCH] [RWY] 01R [FOR TFC MGMT] , "
 			},
 			{
 				"name": "Visual Approach",
@@ -144,7 +144,7 @@
 	},
 	"YBCG": {
 		"name": "[GOLD COAST]",
-		"firstContact": "[ON FIRST CONTACT WITH CG_TWR OR CG_APP NOTIFY RECEIPT]",
+		"firstContact": "[ON FIRST CONTACT WITH CG TWR OR BN APP, NOTIFY RECEIPT]",
 		"runwayModes": {},
 		"approachTypes":[
 			{
@@ -287,7 +287,7 @@
 			},
 			{
 				"name": "21 and 24 Arrivals, 21 Departures",
-				"text": "[RWY] 23 [FOR ARRS] , [RWY] 05 [FOR DEPS]",
+				"text": "[RWY] 21 [AND] [RWY] 24 [FOR ARRS] , [RWY] 21 [FOR DEPS]",
 				"dir1": ["21", 196],
 				"dir2": ["240", 240]
 			},
@@ -302,7 +302,7 @@
 				"dir1": ["06", 60]
 			},
 			{
-				"name": "03 and 06 Arrivals, 03 Departures (North), 21 other Departures",
+				"name": "03 and 06 Arrivals, 03 Departures (North), 06 other Departures",
 				"text": "[RWY] 03 [FOR ARRS] , [RWY] 03 [FOR DEP VIA GURAK, OTLED, AVNEX, MANDU, SOLUS & KEELS] , [RWY] 06 [FOR ALL OTHER DEPS]",
 				"dir1": ["03", 16],
 				"dir2": ["06", 60]
