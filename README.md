@@ -1,3 +1,6 @@
+# Archived
+With the introduction of AFV, this repository has been archived.
+
 [![VATPAC Logo](https://cdn.vatpac.org/images/logo_old_white.png "VATPAC Logo")](http://vatpac.org "VATPAC Logo")
 # VATPAC EuroScope ATIS Generator V2
 The VATPAC EuroScope ATIS generator is back with a punch! Providing 100% automatic updates ATIS updates, native desktop notifications, and much more than the previous web based ATIS generator.
